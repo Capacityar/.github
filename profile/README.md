@@ -119,9 +119,9 @@
 </table>
 </details>
 
-<!-- VIDEO -->
+<!-- VIDEO + DEMO -->
 <details open>
-<summary style="font-size: 20px; font-weight: bold; cursor: pointer; color: #e6ebff;">🎥 Video del prototipo</summary>
+<summary style="font-size: 20px; font-weight: bold; cursor: pointer; color: #e6ebff;">🎥 Demo en vivo</summary>
 <br>
 
 <div align="center">
@@ -131,6 +131,21 @@
   <br><br>
   <a href="https://youtu.be/svMMtfMBOhE" style="display: inline-block; padding: 10px 24px; background: linear-gradient(135deg, #7c5cff, #22d3ee); color: #0b1020; font-weight: 700; border-radius: 10px; text-decoration: none;">▶ Ver demo en YouTube</a>
 </div>
+
+<br>
+
+<table>
+  <tr>
+    <td align="center" style="background: #121933; border: 1px solid #243056; border-radius: 14px; padding: 16px;">
+      <div style="font-size: 14px; color: #6b7ba3; margin-bottom: 6px;">Documentación interactiva de la API</div>
+      <a href="https://capacity-ar-ap.onrender.com/docs" style="font-size: 16px; font-weight: 700; color: #22d3ee; text-decoration: none;">📖 Swagger /docs →</a>
+    </td>
+    <td align="center" style="background: #121933; border: 1px solid #243056; border-radius: 14px; padding: 16px;">
+      <div style="font-size: 14px; color: #6b7ba3; margin-bottom: 6px;">Probá los endpoints desde el navegador</div>
+      <a href="https://capacity-ar-ap.onrender.com/demo-api" style="font-size: 16px; font-weight: 700; color: #22d3ee; text-decoration: none;">🧪 Demo API →</a>
+    </td>
+  </tr>
+</table>
 </details>
 
 <!-- TABLERO Y DOCS -->
