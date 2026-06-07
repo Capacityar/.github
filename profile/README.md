@@ -2,6 +2,24 @@
 
 **Plataforma de Análisis de Brecha de Capacidades — Cierre de Brecha 1 (C1)**
 
+**Materia:** Ingeniería de Software I — **Carrera:** Licenciatura en Informática  
+**Universidad:** Universidad Metropolitana para la Educación y el Trabajo (UMET)  
+**Período:** 1° Cuatrimestre 2026
+
+---
+
+## 👥 Equipo
+
+| Integrante | Rol |
+|------------|-----|
+| | |
+| | |
+| | |
+| | |
+| | |
+
+**Docente:** 
+
 ---
 
 ## 📊 KPIs del Proyecto
