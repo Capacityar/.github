@@ -23,6 +23,12 @@
 | [frontend](https://github.com/Capacityar/frontend) | React + Vite + TypeScript + Tailwind |
 | [.github](https://github.com/Capacityar/.github) | Perfil de org + informes técnicos |
 
+## 🎥 Video del prototipo
+
+[![CapacityAR - Demo del prototipo](https://img.youtube.com/vi/svMMtfMBOhE/maxresdefault.jpg)](https://youtu.be/svMMtfMBOhE)
+
+**▶ [Ver demo en YouTube](https://youtu.be/svMMtfMBOhE)** — Prototipo funcional del MVP
+
 ## 📋 Tablero
 
 [CapacityAr Tablero →](https://github.com/orgs/Capacityar/projects/1)
