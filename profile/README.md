@@ -50,14 +50,18 @@
 
 Pasión → Play → Práctica → Paciencia → Perseverancia
 
-## 🔍 Retrospectiva C1
+## 🔍 Retrospectiva C2
 
-| Aspecto | Resumen |
-|---------|---------|
-| ✅ Aciertos | MVP funcional en 27 h, 8 módulos backend operativos, IA con fallback, frontend con 15 páginas |
-| ❌ Dificultades | Auth diferida, frontend sin conexión a API real, timeout Render 30s |
-| 🔧 Próximos pasos | Perseverancia (E1), Tutores HITL (E2), Alertas (E3), Next-unit (E4) — ~13-16 h para cerrar el modelo |
+| Dimensión | Análisis |
+|-----------|----------|
+| ✅ Backend | 8 módulos operativos, 27 h invertidas, IA híbrida con fallback Groq/Gemini/Mock |
+| ✅ Frontend | 15 páginas en React 19 + Tailwind, routing completo con Wouter |
+| ✅ Documentación | Informe técnico HTML + Pages, manual, stack, requerimientos v2.0 |
+| ❌ Deuda técnica | Auth diferida, sin tests, sin Alembic, CORS pendiente |
+| ❌ Frontend | Datos mockeados — pendiente conexión a API real |
+| ⚠️ Riesgo | Timeout Render 30s, cuotas de LLM gratuitas limitadas |
+| 🔧 Próximos pasos | Perseverancia (E1), Tutores HITL (E2), Alertas (E3), Next-unit (E4) — ~13-16 h |
 
-> Cada integrante completa su reflexión individual en [`docs/retrospectiva-C1.md`](https://github.com/Capacityar/backend/blob/main/docs/retrospectiva-C1.md)
+> Cada integrante completa su reflexión individual en [`docs/retrospectiva-C2.md`](https://github.com/Capacityar/backend/blob/main/docs/retrospectiva-C2.md)
 
 Proyecto académico · Curso 2025–2026 · Universidad de la República
