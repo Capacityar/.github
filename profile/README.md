@@ -46,10 +46,23 @@
     <th style="padding: 10px 16px; color: #a8b3d9; font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em;">Integrante</th>
     <th style="padding: 10px 16px; color: #a8b3d9; font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em;">Rol</th>
   </tr>
-  <tr><td style="padding: 8px 16px; border-bottom: 1px solid #243056;"></td><td style="padding: 8px 16px; border-bottom: 1px solid #243056;"></td></tr>
-  <tr><td style="padding: 8px 16px; border-bottom: 1px solid #243056;"></td><td style="padding: 8px 16px; border-bottom: 1px solid #243056;"></td></tr>
-  <tr><td style="padding: 8px 16px; border-bottom: 1px solid #243056;"></td><td style="padding: 8px 16px; border-bottom: 1px solid #243056;"></td></tr>
-  <tr><td style="padding: 8px 16px; border-bottom: 1px solid #243056;"></td><td style="padding: 8px 16px; border-bottom: 1px solid #243056;"></td></tr>
+  <tr><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Agustin Villamayor</td><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Equipo 1</td></tr>
+  <tr><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Fabricio Giribone</td><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Equipo 1</td></tr>
+  <tr><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Juanpi Farneda</td><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Equipo 1</td></tr>
+  <tr><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Leonardo Cravero</td><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Equipo 1</td></tr>
+  <tr><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Agustina Cabral</td><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Equipo 2</td></tr>
+  <tr><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Federico Silva</td><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Equipo 2</td></tr>
+  <tr><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">julian perrotta</td><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Equipo 2</td></tr>
+  <tr><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Marcelo Vieira</td><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Equipo 2</td></tr>
+  <tr><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Santiago Escudero</td><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Equipo 2</td></tr>
+  <tr><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Blas Macrina</td><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Equipo 3</td></tr>
+  <tr><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Emanuel Guillén</td><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Equipo 3</td></tr>
+  <tr><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Leandro Pasteur</td><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Equipo 3</td></tr>
+  <tr><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Maximiliano Giribone</td><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Equipo 3</td></tr>
+  <tr><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Guillermo Fernandez</td><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Scrum Master</td></tr>
+  
+  
+
   <tr><td style="padding: 8px 16px;"></td><td style="padding: 8px 16px;"></td></tr>
 </table>
 
