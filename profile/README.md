@@ -66,7 +66,7 @@
   <tr><td style="padding: 8px 16px;"></td><td style="padding: 8px 16px;"></td></tr>
 </table>
 
-<p style="color: #a8b3d9; font-size: 14px;"><b>Docente:</b> <span style="color: #6b7ba3;">Pendiente</span></p>
+<p style="color: #a8b3d9; font-size: 14px;"><b>Docente:</b> <span style="color: #6b7ba3;">Juan R. Vasallo</span></p>
 </details>
 
 <!-- KPIs -->
