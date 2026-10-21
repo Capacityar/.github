@@ -185,9 +185,9 @@
 
 | Documento | Link |
 |-----------|------|
-| Manual de usuario | [Ver →](https://github.com/Capacityar/backend/blob/main/docs/2026-06%20-%20Manual%20de%20Usuario.md) |
-| Stack tecnológico | [Ver →](https://github.com/Capacityar/backend/blob/main/docs/2026-06-04%20-%20Tech%20stack.md) |
-| Ing. de Requerimientos v2.0 | [Ver →](https://github.com/Capacityar/backend/blob/main/docs/requerimientos-v2.md) |
+| Manual de usuario | [Ver →](https://github.com/Capacityar/.github/blob/main/docs/manual-de-usuario.md) |
+| Stack tecnológico | [Ver →](https://github.com/Capacityar/.github/blob/main/docs/tech-stack.md) |
+| Ing. de Requerimientos v2.0 | [Ver →](https://github.com/Capacityar/.github/blob/main/docs/requerimientos-v2.md) |
 
 </details>
 
@@ -274,7 +274,7 @@
 <br>
 
 <blockquote style="border-left: 3px solid #7c5cff; padding: 8px 16px; background: rgba(124,92,255,0.08); border-radius: 6px; color: #a8b3d9; font-size: 14px;">
-  Cada integrante completa su reflexión individual en <a href="https://github.com/Capacityar/backend/blob/main/docs/retrospectiva-C2.md" style="color: #22d3ee;">docs/retrospectiva-C2.md</a>
+  Cada integrante completa su reflexión individual en <a href="https://github.com/Capacityar/.github/blob/main/docs/retrospectiva-C2.md" style="color: #22d3ee;">docs/retrospectiva-C2.md</a>
 </blockquote>
 
 </details>
