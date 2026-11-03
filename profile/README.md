@@ -28,7 +28,7 @@
 <table align="center">
   <tr>
     <td align="center" colspan="2" style="padding: 8px 20px; color: #a8b3d9; font-size: 14px;">
-      <b>Materia:</b> Ingeniería de Software I &ensp;|&ensp; <b>Carrera:</b> Licenciatura en Informática<br>
+      <b>Materia:</b> Ingeniería de Software II &ensp;|&ensp; <b>Carrera:</b> Licenciatura en Informática<br>
       <b>Universidad:</b> Universidad Metropolitana para la Educación y el Trabajo (UMET)
     </td>
   </tr>
@@ -82,6 +82,10 @@
     <td align="center" style="background: #121933; border: 1px solid #243056; border-radius: 14px; padding: 16px 20px;">
       <div style="font-size: 28px; font-weight: 700; color: #f59e0b;">90%</div>
       <div style="font-size: 11px; color: #6b7ba3; text-transform: uppercase; letter-spacing: 0.08em;">Cobertura backend</div>
+    </td>
+    <td align="center" style="background: #121933; border: 1px solid #243056; border-radius: 14px; padding: 16px 20px;">
+      <div style="font-size: 28px; font-weight: 700; color: #f87171;">0%</div>
+      <div style="font-size: 11px; color: #6b7ba3; text-transform: uppercase; letter-spacing: 0.08em;">Cobertura frontend</div>
     </td>
     <td align="center" style="background: #121933; border: 1px solid #243056; border-radius: 14px; padding: 16px 20px;">
       <div style="font-size: 28px; font-weight: 700; color: #7c5cff;">S1</div>
@@ -277,5 +281,5 @@
 <hr style="border: 0; height: 1px; background: linear-gradient(90deg, transparent, #7c5cff, #22d3ee, transparent);">
 
 <div align="center" style="color: #6b7ba3; font-size: 13px; padding: 16px 0;">
-  CapacityAR · Proyecto académico · Ingeniería de Software I — UMET 2026
+  CapacityAR · Proyecto académico · Ingeniería de Software II — UMET 2026
 </div>
