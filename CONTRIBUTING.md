@@ -3,7 +3,39 @@
 **Fecha de elaboración:** 2026-10-27
 **Elaborado por:** Scrum Master
 **Aplica a:** `Capacityar/backend`, `Capacityar/frontend`, `Capacityar/.github`
-**Estado:** Vigente
+**Estado:** Vigente (flujo directo) — ver sección 0
+
+---
+
+## 0. Política vigente vs. política ideal
+
+**Decisión del Scrum Master — 2026-11-03.** Mientras el equipo se estabiliza, regimos un flujo **trunk-based directo**: el CI reemplaza momentáneamente a la revisión humana.
+
+### 0.1 Vigente hoy (flujo directo)
+
+| Regla | Detalle |
+|-------|---------|
+| Dónde | Commit directo a `main` **permitido** para todos (E1, E2, E3, SM) |
+| El control | El CI (`ci.yml`: `lint` + `test`, cobertura ≥ 70 %). Reemplaza la revisión humana mientras no haya regla de protección |
+| Vinculación | El commit **debe** cerrar su issue: `Closes #N` en el mensaje |
+| Cierre | Si el commit entra directo, el issue se cierra el mismo día y el tablero pasa a Done |
+| Rojo | No se commitea directo si el CI está en rojo. Si un commit directo deja `main` rojo, se revierte de inmediato |
+
+Las secciones **6, 7 y 8** (PR, revisión y reglas de merge) quedan **suspendidas** y se conservan como la **política ideal** a reinstalar.
+
+### 0.2 Ideal (a reinstalar)
+
+El flujo completo de PR + revisión independiente que describen las secciones 3, 6, 7 y 8. Se reactiva cuando:
+
+- exista una regla de protección (ruleset) que **bloquee** el CI en rojo y exija PR, o
+- el equipo lo decida en una retrospectiva.
+
+### 0.3 Qué NO cambia
+
+- El formato de commits (§5).
+- El versionado semántico (§9).
+- El DoD del plan v2.
+- `Closes #N` sigue siendo la única forma de mantener el tablero en sincronía.
 
 ---
 
@@ -175,7 +207,7 @@ Formato: `prefijo/sX.Y-descripcion-en-minusculas-con-guiones`. Sin mayúsculas, 
 
 ### 4.3 Prohibiciones
 
-- **No se commitea directo a `main`.** Ni siquiera para un cambio de una línea, ni siquiera para documentación.
+- **Commit directo a `main`:** solo bajo la política vigente (§0.1). En cuanto se reinstale la ideal (§0.2), vuelve a prohibirse.
 - **No se reutiliza una rama** después de mergeada. Rama nueva para el cambio nuevo.
 - **No se hace `force-push`** sobre una rama con PR abierto, salvo que sea tu propia rama y avises en el PR. Nunca sobre `main`.
 
@@ -227,7 +259,7 @@ tipo(alcance): descripción en imperativo
 
 ### 6.1 Cuándo abrir uno
 
-Siempre. No hay excepciones por tamaño ni por urgencia (para urgencias, ver sección 10).
+En la política ideal, siempre. Hoy el PR es **opcional**: podés subir directo a `main` siguiendo §0.1. Esta sección describe el flujo ideal.
 
 ### 6.2 Título
 
@@ -268,7 +300,7 @@ Si querés feedback temprano, abrí el PR como **draft**. No se puede mergear ha
 
 ---
 
-## 7. Revisión de código
+## 7. Revisión de código *(política ideal — suspendida, ver §0)*
 
 ### 7.1 Quién revisa
 
@@ -344,7 +376,7 @@ Condiciones:
 
 ---
 
-## 8. Reglas de merge
+## 8. Reglas de merge *(política ideal — suspendida, ver §0)*
 
 | Regla | Detalle |
 |-------|---------|
