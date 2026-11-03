@@ -51,9 +51,9 @@
   <tr><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Fabricio Giribone</td><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">E1 — Backend</td></tr>
   <tr><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Emanuel Guillén</td><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">E2 — DevOps</td></tr>
   <tr><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Federico Silva</td><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">E2 — DevOps</td></tr>
-  <tr><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Agustina Carabajal</td><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">E3 — UX</td></tr>
-  <tr><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Leandro Pasteur</td><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">E3 — UX</td></tr>
-  <tr><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Julian Perrota</td><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">E3 — UX</td></tr>
+  <tr><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Agustina Carabajal</td><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">E3 — Frontend</td></tr>
+  <tr><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Leandro Pasteur</td><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">E3 — Frontend</td></tr>
+  <tr><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Julian Perrota</td><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">E3 — Frontend</td></tr>
   <tr><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Guillermo Fernandez</td><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Scrum Master</td></tr>
   
   
