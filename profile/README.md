@@ -8,10 +8,10 @@
     Plataforma de Análisis de Brecha de Capacidades
   </p>
   <p style="font-size: 14px; color: #6b7ba3;">
-    Cierre de Brecha 1 (C1) — Primer Cuatrimestre 2026
+    Sprint 1 — Plan de Sprints v2 · Primer Cuatrimestre 2026
   </p>
   <p>
-    <img src="https://img.shields.io/badge/Estado-C1%20Cerrado-22d3ee?style=for-the-badge&labelColor=121933"/>
+    <img src="https://img.shields.io/badge/Estado-Sprint%201%20en%20curso-22d3ee?style=for-the-badge&labelColor=121933"/>
     <br/>
     <img src="https://img.shields.io/badge/Python-3.12-3776AB?logo=python&style=flat&labelColor=121933"/>
     <img src="https://img.shields.io/badge/FastAPI-0.115-009688?logo=fastapi&style=flat&labelColor=121933"/>
@@ -46,19 +46,14 @@
     <th style="padding: 10px 16px; color: #a8b3d9; font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em;">Integrante</th>
     <th style="padding: 10px 16px; color: #a8b3d9; font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em;">Rol</th>
   </tr>
-  <tr><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Agustin Villamayor</td><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Equipo 1</td></tr>
-  <tr><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Fabricio Giribone</td><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Equipo 1</td></tr>
-  <tr><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Juanpi Farneda</td><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Equipo 1</td></tr>
-  <tr><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Leonardo Cravero</td><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Equipo 1</td></tr>
-  <tr><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Agustina Cabral</td><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Equipo 2</td></tr>
-  <tr><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Federico Silva</td><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Equipo 2</td></tr>
-  <tr><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">julian perrotta</td><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Equipo 2</td></tr>
-  <tr><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Marcelo Vieira</td><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Equipo 2</td></tr>
-  <tr><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Santiago Escudero</td><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Equipo 2</td></tr>
-  <tr><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Blas Macrina</td><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Equipo 3</td></tr>
-  <tr><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Emanuel Guillén</td><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Equipo 3</td></tr>
-  <tr><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Leandro Pasteur</td><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Equipo 3</td></tr>
-  <tr><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Maximiliano Giribone</td><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Equipo 3</td></tr>
+  <tr><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Leonardo Cravero</td><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">E1 — Backend</td></tr>
+  <tr><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Juan Farneda</td><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">E1 — Backend</td></tr>
+  <tr><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Fabricio Giribone</td><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">E1 — Backend</td></tr>
+  <tr><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Emanuel Guillén</td><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">E2 — DevOps</td></tr>
+  <tr><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Federico Silva</td><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">E2 — DevOps</td></tr>
+  <tr><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Agustina Carabajal</td><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">E3 — UX</td></tr>
+  <tr><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Leandro Pasteur</td><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">E3 — UX</td></tr>
+  <tr><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Julian Perrota</td><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">E3 — UX</td></tr>
   <tr><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Guillermo Fernandez</td><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Scrum Master</td></tr>
   
   
@@ -77,29 +72,29 @@
 <table>
   <tr>
     <td align="center" style="background: #121933; border: 1px solid #243056; border-radius: 14px; padding: 16px 20px;">
-      <div style="font-size: 28px; font-weight: 700; color: #34d399;">6 / 14</div>
-      <div style="font-size: 11px; color: #6b7ba3; text-transform: uppercase; letter-spacing: 0.08em;">Épicas completadas</div>
+      <div style="font-size: 28px; font-weight: 700; color: #34d399;">49</div>
+      <div style="font-size: 11px; color: #6b7ba3; text-transform: uppercase; letter-spacing: 0.08em;">Issues abiertos</div>
     </td>
     <td align="center" style="background: #121933; border: 1px solid #243056; border-radius: 14px; padding: 16px 20px;">
-      <div style="font-size: 28px; font-weight: 700; color: #22d3ee;">27 h</div>
-      <div style="font-size: 11px; color: #6b7ba3; text-transform: uppercase; letter-spacing: 0.08em;">Invertidas</div>
+      <div style="font-size: 28px; font-weight: 700; color: #22d3ee;">63</div>
+      <div style="font-size: 11px; color: #6b7ba3; text-transform: uppercase; letter-spacing: 0.08em;">Issues cerrados</div>
     </td>
     <td align="center" style="background: #121933; border: 1px solid #243056; border-radius: 14px; padding: 16px 20px;">
-      <div style="font-size: 28px; font-weight: 700; color: #f59e0b;">30-42 h</div>
-      <div style="font-size: 11px; color: #6b7ba3; text-transform: uppercase; letter-spacing: 0.08em;">Pendientes</div>
+      <div style="font-size: 28px; font-weight: 700; color: #f59e0b;">90%</div>
+      <div style="font-size: 11px; color: #6b7ba3; text-transform: uppercase; letter-spacing: 0.08em;">Cobertura backend</div>
     </td>
     <td align="center" style="background: #121933; border: 1px solid #243056; border-radius: 14px; padding: 16px 20px;">
-      <div style="font-size: 28px; font-weight: 700; color: #7c5cff;">29</div>
-      <div style="font-size: 11px; color: #6b7ba3; text-transform: uppercase; letter-spacing: 0.08em;">Issues</div>
+      <div style="font-size: 28px; font-weight: 700; color: #7c5cff;">S1</div>
+      <div style="font-size: 11px; color: #6b7ba3; text-transform: uppercase; letter-spacing: 0.08em;">Sprint actual</div>
     </td>
   </tr>
 </table>
 
 <br>
 
-<strong style="color: #a8b3d9; font-size: 13px;">Avance del proyecto</strong>
-<progress value="6" max="14" style="width: 100%; height: 20px; border-radius: 10px; border: none; background: #1a2347; color: #7c5cff;"></progress>
-<div style="text-align: right; font-size: 12px; color: #6b7ba3; margin-top: 2px;">43% — 6 de 14 épicas</div>
+<strong style="color: #a8b3d9; font-size: 13px;">Cierre de issues</strong>
+<progress value="63" max="112" style="width: 100%; height: 20px; border-radius: 10px; border: none; background: #1a2347; color: #7c5cff;"></progress>
+<div style="text-align: right; font-size: 12px; color: #6b7ba3; margin-top: 2px;">56% — 63 de 112 issues cerrados</div>
 
 </details>
 
@@ -117,12 +112,12 @@
   <tr>
     <td style="padding: 8px 16px; border-bottom: 1px solid #243056;"><a href="https://github.com/Capacityar/backend" style="color: #22d3ee;">backend</a></td>
     <td style="padding: 8px 16px; border-bottom: 1px solid #243056; color: #a8b3d9;">API FastAPI + PostgreSQL + Groq/Gemini</td>
-    <td align="center" style="padding: 8px 16px; border-bottom: 1px solid #243056; color: #6b7ba3;">73</td>
+    <td align="center" style="padding: 8px 16px; border-bottom: 1px solid #243056; color: #6b7ba3;">99</td>
   </tr>
   <tr>
     <td style="padding: 8px 16px; border-bottom: 1px solid #243056;"><a href="https://github.com/Capacityar/frontend" style="color: #22d3ee;">frontend</a></td>
     <td style="padding: 8px 16px; border-bottom: 1px solid #243056; color: #a8b3d9;">React + Vite + TypeScript + Tailwind</td>
-    <td align="center" style="padding: 8px 16px; border-bottom: 1px solid #243056; color: #6b7ba3;">3</td>
+    <td align="center" style="padding: 8px 16px; border-bottom: 1px solid #243056; color: #6b7ba3;">9</td>
   </tr>
   <tr>
     <td style="padding: 8px 16px;"><a href="https://github.com/Capacityar/.github" style="color: #22d3ee;">.github</a></td>
@@ -255,7 +250,7 @@
   </tr>
   <tr>
     <td style="padding: 8px 16px; border-bottom: 1px solid #243056;"><span style="color: #f87171;">❌</span> Deuda técnica</td>
-    <td style="padding: 8px 16px; border-bottom: 1px solid #243056; color: #a8b3d9;">Auth diferida, sin tests, sin Alembic, CORS pendiente</td>
+    <td style="padding: 8px 16px; border-bottom: 1px solid #243056; color: #a8b3d9;">Auth diferida; tests, Alembic y CORS ya resueltos (CI al 90 %)</td>
   </tr>
   <tr>
     <td style="padding: 8px 16px; border-bottom: 1px solid #243056;"><span style="color: #f87171;">❌</span> Frontend</td>
