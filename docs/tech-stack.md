@@ -1,12 +1,12 @@
-# **Stack Tecnológico — Capacitaya**
+# **Stack Tecnológico — Capacityar**
 
-**Proyecto:** Capacitaya (Capacity AR)  
-**Fecha de cierre:** Junio 2026  
-**Estado:** MVP parcial — backend funcional, frontend funcional, sin auth
+**Proyecto:** Capacityar  
+**Fecha de actualización:** Noviembre 2026  
+**Estado:** MVP — backend funcional (CI + cobertura ≥ 70 %), frontend funcional (datos parcialmente mockeados), auth mock + JWT
 
 ## **Visión general**
 
-Capacita Ya es una plataforma de aprendizaje adaptativo basada en el modelo pedagógico 5P, con tutoría humana integrada (HITL). La arquitectura es un monolito modular con backend Python y frontend React, desplegados como una sola unidad en la nube.
+Capacityar es una plataforma de aprendizaje adaptativo basada en el modelo pedagógico 5P, con tutoría humana integrada (HITL). La arquitectura es un monolito modular con backend Python (FastAPI) y frontend React, **desplegados de forma desacoplada**: backend en Render, frontend en Vercel.
 
 ## **Arquitectura**
 
@@ -125,24 +125,35 @@ app/modules/\<módulo\>/
 
 | Componente | Tecnología |
 | :---- | :---- |
-| Plataforma de hosting | Render (Web Service, free tier) |
-| CI/CD | Auto-deploy via webhook de GitHub (rama `main`) |
+| Backend (API) | Render (Web Service, free tier) |
+| Frontend (SPA) | Vercel (estático, framework Vite) |
+| CI/CD | GitHub Actions (backend) \+ auto-deploy de `main` (Render y Vercel) |
 | Contenerización local | Docker \+ Docker Compose |
-| Gestión de entorno | Variables de entorno en Render Dashboard |
+| Gestión de entorno | Variables de entorno en Render Dashboard y Vercel |
 
-### **Flujo de despliegue en Render**
+### **Flujo de despliegue (desacoplado)**
 
-push → main
+**Backend (Render):**
 
-  → Render build: pip install \-r requirements.txt
+push → `main`
 
-                  cd frontend && npm install && npm run build
+  → Render build: `pip install -r requirements.txt`
 
-  → start: uvicorn app.main:app \--host 0.0.0.0 \--port $PORT
+  → start: `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
 
-  → URL pública: https://capacity-ar-ap.onrender.com
+  → URL: https://capacity-ar-ap.onrender.com
 
-El frontend compilado se sirve estáticamente desde el mismo proceso FastAPI. No hay servidor frontend separado en producción.
+**Frontend (Vercel):**
+
+push → `main`
+
+  → Vercel build: `npm run build` (config en `vercel.json`)
+
+  → output: `dist/` (SPA con rewrite a `index.html`)
+
+  → URL: `*.vercel.app` (configurable con `VITE_API_URL`)
+
+El frontend llama a la API de Render por CORS (orígenes permitidos en `CORS_ORIGINS`).
 
 ## **Herramientas de desarrollo**
 
@@ -180,9 +191,9 @@ El sistema siempre tiene un **fallback automático a Mock**: si el LLM falla, el
 | Decisión | Justificación |
 | :---- | :---- |
 | Python pinneado a 3.12 (`.python-version`) | Render usa Python 3.14 por defecto; SQLAlchemy 2.0.36 falla con `Mapped[int | None]` en 3.14 |
-| `create_all` en startup (sin Alembic) | Suficiente para MVP; Alembic se suma cuando haya datos reales y migraciones necesarias |
+| Migraciones con Alembic | Esquema versionado (`alembic/versions/`); reemplaza el `create_all` del MVP inicial |
 | `postgres://` → `postgresql+psycopg://` normalizado en `config.py` | Render/Neon entregan URLs sin driver explícito |
-| Auth diferida intencionalmente | Los endpoints son públicos en MVP; la matriz de permisos está definida en `docs/access-matrix.md` y preparada para cuando se sume `auth/` con JWT |
+| Auth mock + JWT | `AUTH_MODE=mock\|jwt`; la matriz de permisos está en `docs/access-matrix.md` |
 | SQLite válido para desarrollo | Reduce fricción de onboarding para devs sin PostgreSQL local |
 | Versiones de dependencias exactas (sin rangos) | Reproducibilidad garantizada entre local y Render |
 

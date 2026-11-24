@@ -1,17 +1,17 @@
 <div align="center">
   <h1>
     <span style="background: linear-gradient(135deg, #7c5cff, #22d3ee); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
-      ⚡ CapacityAR
+      ⚡ Capacityar
     </span>
   </h1>
   <p style="font-size: 18px; color: #a8b3d9;">
     Plataforma de Análisis de Brecha de Capacidades
   </p>
   <p style="font-size: 14px; color: #6b7ba3;">
-    Sprint 1 — Plan de Sprints v2 · Primer Cuatrimestre 2026
+    Sprint 2 · Plan de Sprints v2 · 2026
   </p>
   <p>
-    <img src="https://img.shields.io/badge/Estado-Sprint%201%20en%20curso-22d3ee?style=for-the-badge&labelColor=121933"/>
+    <img src="https://img.shields.io/badge/Estado-Sprint%202%20en%20curso-22d3ee?style=for-the-badge&labelColor=121933"/>
     <br/>
     <img src="https://img.shields.io/badge/Python-3.12-3776AB?logo=python&style=flat&labelColor=121933"/>
     <img src="https://img.shields.io/badge/FastAPI-0.115-009688?logo=fastapi&style=flat&labelColor=121933"/>
@@ -55,10 +55,6 @@
   <tr><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Leandro Pasteur</td><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">E3 — Frontend</td></tr>
   <tr><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Julian Perrota</td><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">E3 — Frontend</td></tr>
   <tr><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Guillermo Fernandez</td><td style="padding: 8px 16px; border-bottom: 1px solid #243056;">Scrum Master</td></tr>
-  
-  
-
-  <tr><td style="padding: 8px 16px;"></td><td style="padding: 8px 16px;"></td></tr>
 </table>
 
 <p style="color: #a8b3d9; font-size: 14px;"><b>Docente:</b> <span style="color: #6b7ba3;">Juan R. Vasallo</span></p>
@@ -72,15 +68,15 @@
 <table>
   <tr>
     <td align="center" style="background: #121933; border: 1px solid #243056; border-radius: 14px; padding: 16px 20px;">
-      <div style="font-size: 28px; font-weight: 700; color: #34d399;">49</div>
+      <div style="font-size: 28px; font-weight: 700; color: #34d399;">50</div>
       <div style="font-size: 11px; color: #6b7ba3; text-transform: uppercase; letter-spacing: 0.08em;">Issues abiertos</div>
     </td>
     <td align="center" style="background: #121933; border: 1px solid #243056; border-radius: 14px; padding: 16px 20px;">
-      <div style="font-size: 28px; font-weight: 700; color: #22d3ee;">63</div>
+      <div style="font-size: 28px; font-weight: 700; color: #22d3ee;">77</div>
       <div style="font-size: 11px; color: #6b7ba3; text-transform: uppercase; letter-spacing: 0.08em;">Issues cerrados</div>
     </td>
     <td align="center" style="background: #121933; border: 1px solid #243056; border-radius: 14px; padding: 16px 20px;">
-      <div style="font-size: 28px; font-weight: 700; color: #f59e0b;">90%</div>
+      <div style="font-size: 28px; font-weight: 700; color: #f59e0b;">73%</div>
       <div style="font-size: 11px; color: #6b7ba3; text-transform: uppercase; letter-spacing: 0.08em;">Cobertura backend</div>
     </td>
     <td align="center" style="background: #121933; border: 1px solid #243056; border-radius: 14px; padding: 16px 20px;">
@@ -88,7 +84,7 @@
       <div style="font-size: 11px; color: #6b7ba3; text-transform: uppercase; letter-spacing: 0.08em;">Cobertura frontend</div>
     </td>
     <td align="center" style="background: #121933; border: 1px solid #243056; border-radius: 14px; padding: 16px 20px;">
-      <div style="font-size: 28px; font-weight: 700; color: #7c5cff;">S1</div>
+      <div style="font-size: 28px; font-weight: 700; color: #7c5cff;">S2</div>
       <div style="font-size: 11px; color: #6b7ba3; text-transform: uppercase; letter-spacing: 0.08em;">Sprint actual</div>
     </td>
   </tr>
@@ -97,8 +93,8 @@
 <br>
 
 <strong style="color: #a8b3d9; font-size: 13px;">Cierre de issues</strong>
-<progress value="63" max="112" style="width: 100%; height: 20px; border-radius: 10px; border: none; background: #1a2347; color: #7c5cff;"></progress>
-<div style="text-align: right; font-size: 12px; color: #6b7ba3; margin-top: 2px;">56% — 63 de 112 issues cerrados</div>
+<progress value="77" max="127" style="width: 100%; height: 20px; border-radius: 10px; border: none; background: #1a2347; color: #7c5cff;"></progress>
+<div style="text-align: right; font-size: 12px; color: #6b7ba3; margin-top: 2px;">61% — 77 de 127 issues cerrados</div>
 
 </details>
 
@@ -116,7 +112,7 @@
   <tr>
     <td style="padding: 8px 16px; border-bottom: 1px solid #243056;"><a href="https://github.com/Capacityar/backend" style="color: #22d3ee;">backend</a></td>
     <td style="padding: 8px 16px; border-bottom: 1px solid #243056; color: #a8b3d9;">API FastAPI + PostgreSQL + Groq/Gemini</td>
-    <td align="center" style="padding: 8px 16px; border-bottom: 1px solid #243056; color: #6b7ba3;">99</td>
+    <td align="center" style="padding: 8px 16px; border-bottom: 1px solid #243056; color: #6b7ba3;">100</td>
   </tr>
   <tr>
     <td style="padding: 8px 16px; border-bottom: 1px solid #243056;"><a href="https://github.com/Capacityar/frontend" style="color: #22d3ee;">frontend</a></td>
@@ -126,7 +122,7 @@
   <tr>
     <td style="padding: 8px 16px;"><a href="https://github.com/Capacityar/.github" style="color: #22d3ee;">.github</a></td>
     <td style="padding: 8px 16px; color: #a8b3d9;">Perfil de org + informes técnicos</td>
-    <td align="center" style="padding: 8px 16px; color: #6b7ba3;">—</td>
+    <td align="center" style="padding: 8px 16px; color: #6b7ba3;">25</td>
   </tr>
 </table>
 </details>
@@ -170,7 +166,7 @@
     <td align="center" style="background: #121933; border: 1px solid #243056; border-radius: 14px; padding: 16px;">
       <a href="https://github.com/orgs/Capacityar/projects/1" style="font-size: 16px; font-weight: 700; color: #22d3ee; text-decoration: none;">📋 CapacityAr Tablero →</a>
       <br>
-      <span style="font-size: 12px; color: #6b7ba3;">29 issues · 5 columnas</span>
+      <span style="font-size: 12px; color: #6b7ba3;">69 issues · 6 columnas</span>
     </td>
     <td align="center" style="background: #121933; border: 1px solid #243056; border-radius: 14px; padding: 16px;">
       <a href="https://capacityar.github.io/.github/" style="font-size: 16px; font-weight: 700; color: #22d3ee; text-decoration: none;">📄 Informe técnico →</a>
@@ -281,5 +277,5 @@
 <hr style="border: 0; height: 1px; background: linear-gradient(90deg, transparent, #7c5cff, #22d3ee, transparent);">
 
 <div align="center" style="color: #6b7ba3; font-size: 13px; padding: 16px 0;">
-  CapacityAR · Proyecto académico · Ingeniería de Software II — UMET 2026
+  Capacityar · Proyecto académico · Ingeniería de Software II — UMET 2026
 </div>

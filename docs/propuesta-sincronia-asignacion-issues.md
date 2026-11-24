@@ -1,5 +1,7 @@
 # Propuesta de sincronía y asignación de issues — Capacityar
 
+> **Estado (Nov 2026):** documento histórico. Las acciones propuestas aquí ya se ejecutaron parcialmente: los labels `E1`/`E2`/`E3`/`scrum-master` están aplicados, los milestones de `.github` fueron eliminados y el project board migró a **iteraciones** (`Sprint 2` → `Sprint 7+`). Se conserva como registro del análisis y de los criterios de asignación por equipo.
+
 **De:** Scrum Master  
 **Para:** Owner del Producto y equipos de desarrollo  
 **Asunto:** Auditoría de sincronía entre milestones, project board e issues; propuesta de asignación por equipos funcionales  

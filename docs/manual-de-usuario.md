@@ -1,14 +1,14 @@
-# **Manual de Usuario — Capacitaya**
+# **Manual de Usuario — Capacityar**
 
 **Versión:** MVP 1.0  
-**Fecha:** Junio 2026  
-**URL de acceso:** [https://capacity-ar-ap.onrender.com](https://capacity-ar-ap.onrender.com)
+**Fecha:** Noviembre 2026  
+**Acceso:** frontend en Vercel (`*.vercel.app`) · API en [capacity-ar-ap.onrender.com](https://capacity-ar-ap.onrender.com)
 
 ---
 
-## **¿Qué es Capacita Ya?**
+## **¿Qué es Capacityar?**
 
-Capacita Ya es una plataforma de aprendizaje adaptativo para capacitación IT. Identifica las brechas de habilidades de un candidato para un puesto determinado, genera un plan de capacitación personalizado con inteligencia artificial y acompaña al alumno mientras lo ejecuta, con el apoyo de un tutor humano.
+Capacityar es una plataforma de aprendizaje adaptativo para capacitación IT. Identifica las brechas de habilidades de un candidato para un puesto determinado, genera un plan de capacitación personalizado con inteligencia artificial y acompaña al alumno mientras lo ejecuta, con el apoyo de un tutor humano.
 
 El sistema aplica el modelo pedagógico **5P**: Pasión, Play, Práctica, Paciencia y Perseverancia.
 
@@ -35,7 +35,7 @@ El sistema tiene tres perfiles de acceso:
 
 ![][image1]
 
-**Nota MVP:** La contraseña no se valida en esta versión. El acceso se realiza solo con el email registrado en el sistema. La contraseña a utilizar es demo
+**Nota:** El acceso en el MVP se realiza con el email registrado. La autenticación por JWT (registro + login) ya está implementada en el backend; en el frontend actual la contraseña de demostración es `demo`.
 
 ### **Usuarios de demostración disponibles**
 

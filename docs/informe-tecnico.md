@@ -1,235 +1,180 @@
-# Informe técnico — Capacity AR
+# Informe de estado — Capacityar (Sprint 2)
 
-Estado del proyecto Capacity AR al cierre de esta iteración: qué se construyó, qué falta, y riesgos identificados, a la luz de la consigna del modelo pedagógico definida en los documentos del TP.
+Estado del proyecto **Capacityar** al cierre del Sprint 2 (noviembre 2026): qué se construyó, cuáles son las fortalezas, qué falta de forma honesta, y las métricas que lo respaldan.
 
----
-
-## 1. Consigna y alcance
-
-La consigna pide diseñar e implementar un **Sistema de Tutoría Inteligente (ITS)** que capacite a jóvenes de barrios vulnerables de Argentina para insertarse en el sector IT, articulado sobre el marco pedagógico de las **5 P** (Práctica, Paciencia, Perseverancia, Pasión, Play) con esquema **Human-in-the-Loop (HITL)**.
-
-Los documentos de referencia definen el flujo en cinco fases:
-
-- **Fase 0 — Diagnóstico de brecha**: evaluación cruzada entre perfil del estudiante y oferta laboral → `learning path` personalizado.
-- **Fase 1 — Pasión**: anclaje motivacional, conectar cada skill con la empresa concreta.
-- **Fase 2 — Play**: micro-lecciones, sandbox, exploración sin penalización.
-- **Fase 3 — Práctica**: ejercicios adaptativos con umbral de dominio del 80%.
-- **Fase 4 — Paciencia y Perseverancia**: refuerzo emocional transversal.
-
-Además, los documentos exigen tres modelos arquitectónicos (Dominio, Estudiante, Pedagógico/multi-agente) y supervisión humana mediante un dashboard con análisis predictivo de riesgo de abandono.
-
-El proyecto se divide en **dos equipos sobre el mismo monolito modular**:
-
-- **Equipo 1 — Gap Engine**: produce el `GapReport` (Fase 0). Recibe los datos crudos del estudiante y de la oferta y genera el reporte de brecha.
-- **Equipo 2 — Capacitación + Tutores** (este repo): consume el `GapReport` y produce el plan pedagógico, la ejecución del alumno, el feedback y la supervisión humana (Fases 1 a 4).
-
-Contrato y división de responsabilidades documentados en [scope-equipos.md](scope-equipos.md).
+> Este informe reemplaza el "Informe técnico C1" anterior. Las cifras provienen de los repositorios y del project board de la organización al momento de la redacción.
 
 ---
 
-## 2. Arquitectura general
+## 1. Resumen ejecutivo
 
-Monolito modular en **Python 3.12 + FastAPI + SQLAlchemy 2.x síncrono**, persistido en **PostgreSQL serverless (Neon)** y deployado en **Render** con auto-deploy desde `main`.
+Capacityar es un **Sistema de Tutoría Inteligente (ITS)** que capacita a jóvenes de barrios vulnerables de Argentina para insertarse en el sector IT, articulado sobre el modelo pedagógico de las **5 P** (Pasión, Play, Práctica, Paciencia, Perseverancia) con esquema **Human-in-the-Loop (HITL)**. Proyecto académico de *Ingeniería de Software II* (UMET), equipo de 9 integrantes + docente.
 
-Cada módulo en `app/modules/<capability>/` respeta la separación en capas:
+El **núcleo del producto (épicas C1–C6) está completo y desplegado**: backend FastAPI en Render, frontend React en Vercel, IA híbrida con fallback, y calidad de base (CI, tests, Alembic, CORS) ya resuelta. Lo que falta es la **segunda capa de funcionalidad** (tutores, alertas, perseverancia, validaciones) y sobre todo la **madurez del frontend** (0 % de tests, datos mockeados, accesibilidad sin medir).
 
-| Capa | Archivo | Responsabilidad |
-|---|---|---|
-| Router | `router.py` | Endpoints HTTP, validación de payloads |
-| Service | `service.py` | Reglas de negocio, orquestación, errores |
-| Repository | `repository.py` | Único lugar con SQLAlchemy |
-| Models | `models.py` | Modelos declarativos |
-| Schemas | `schemas.py` | Contratos Pydantic |
-
-Los proveedores externos (LLMs, repositorios) se inyectan con el patrón **Protocol + Factory**, lo que permite cambiar de Groq a Gemini (o caer a Mock) sin tocar el resto del código.
-
-**Patrón de IA híbrida**: el código determinístico arma la estructura del plan (módulos por skill, 3 fases por módulo, 5 ejercicios por fase de Práctica) y el LLM solo rellena título, contenido y opciones de ejercicios. Esto da control sobre la forma del output y permite el fallback automático a Mock si el LLM falla.
-
-Documentación arquitectónica en [backend-onboarding.md](https://github.com/Capacityar/backend/blob/main/docs/backend-onboarding.md), [ai-integration.md](https://github.com/Capacityar/backend/blob/main/docs/ai-integration.md) y [training-module-design.md](training-module-design.md).
+**Métrica clave:** 127 issues totales, 77 cerrados (**60.6 %**). Cobertura backend **73 %**, frontend **0 %**.
 
 ---
 
-## 3. Lo realizado
+## 2. Lo realizado
 
-### 3.1 Equipo 1 — Gap Engine
+### 2.1 Núcleo MVP (épicas C1–C6) — completo
 
-**Estado: implementado por Equipo 2 en este repo como `gap_analysis`** (porque el equipo 1 no entregó su versión todavía, este módulo lo suple).
+| Épica | Módulo / funcionalidad | Estado |
+|-------|------------------------|--------|
+| C1 | `users` + `skills` + `user_skills` + `job_descriptions` (CRUD con roles) | ✅ |
+| C2 | `learning_paths` (generación del plan a partir del gap) | ✅ |
+| C3 | Persistencia PostgreSQL (Neon) + deploy Render | ✅ |
+| C4 | IA híbrida: Groq Llama + Gemini + fallback Mock | ✅ |
+| C5 | `attempts` + feedback empático (Paciencia, 4.ª P) | ✅ |
+| C6 | `resources` con anti-alucinación de URLs | ✅ |
 
-| Componente | Endpoint | Estado |
-|---|---|---|
-| Upload de 2 documentos (estudiante + oferta) | `POST /api/gap-analyses` (multipart) | ✅ |
-| Extracción de texto PDF / DOCX / TXT | `gap_analysis/extractors.py` | ✅ |
-| LLM (Groq) extrae `GapReport` validado con JSON Schema | `gap_analysis/service.py` | ✅ |
-| Persistencia del gap pendiente (LIFO por email) | tabla `gap_analyses` | ✅ |
-| Disparo del learning path por email | `POST /api/students/{email}/generate-learning-path` | ✅ |
+Además del módulo `gap_analysis` (diagnóstico de brecha por documentos).
 
-El flujo está partido en 2 pasos porque la combinación extracción + generación de plan supera el timeout de 30s de Render free tier. El segundo paso busca el último gap pendiente (`learning_path_id IS NULL`) y lo enlaza.
+### 2.2 Calidad de base (Épica 8) — completo
 
-### 3.2 Equipo 2 — Capacitación
+- **Tests automatizados**: `pytest` + `httpx`, cobertura **73 %** (umbral CI ≥ 70 %).
+- **Alembic**: migraciones versionadas (`alembic/versions/`).
+- **CORS**: habilitado para el origen de Vercel.
+- **CI**: `ci.yml` con `ruff` (lint) + `pytest --cov-fail-under=70`.
 
-#### Módulos implementados
+### 2.3 Autenticación (Épica 6) — mock + JWT
 
-| Módulo | Endpoints | Cubre |
-|---|---|---|
-| `users` | CRUD `/users` | Padrón de actores (student, tutor, company_admin, admin) |
-| `skills` | CRUD `/skills` + seed | Catálogo de habilidades IT |
-| `user_skills` | `/students/{email}/skills` | Auto-reporte de skills del estudiante |
-| `job_descriptions` | CRUD `/job-descriptions` | Ofertas laborales con skills requeridas |
-| `gap_analysis` | ver arriba | Fase 0 (suplantando Equipo 1) |
-| `learning_paths` | `POST/GET /learning-paths` | Fases 1, 2 y 3 del modelo |
-| `attempts` | `POST/GET /attempts` | Fase 4 (Paciencia, feedback empático) |
-| `resources` | (consumido por learning_paths) | Recursos externos por skill+fase |
+- Headers mock (`X-User-Id` / `X-User-Role`) para el MVP.
+- JWT real implementado (S2.1): `POST /auth/register`, `/login`, `/refresh`, `/logout`.
+- `AUTH_MODE=mock|jwt` para alternar sin redeploy.
 
-Todos los endpoints están bajo prefijo `/api`.
+### 2.4 Frontend
 
-#### Cobertura de las 5 P
+- React 19 + Vite + TypeScript + Tailwind CSS v4.
+- ~15 páginas con routing (Wouter), TanStack Query, shadcn/ui.
+- Deploy estático en Vercel (SPA con rewrite a `index.html`), desacoplado del backend.
 
-| P | Cómo se implementa | Estado |
-|---|---|---|
-| **Pasión** | Fase del plan generada por LLM con prompt que conecta la skill con la empresa concreta | ✅ |
-| **Play** | Fase del plan con micro-contenido y recursos externos (sandbox, video) | ✅ |
-| **Práctica** | Fase del plan con 5 ejercicios multiple_choice A/B/C/D, evaluación con umbral 80% | ✅ |
-| **Paciencia** | Feedback empático generado por LLM cuando el alumno falla un ejercicio, sin revelar la respuesta | ✅ |
-| **Perseverancia** | Visualización de progreso, streaks, métricas — requiere módulos `sessions` y `student_metrics` | ❌ |
+### 2.5 Proceso y documentación
 
-Mapeo detallado en [5p-coverage.md](5p-coverage.md).
-
-#### Modelo del Dominio, Estudiante y Pedagógico (según los docx)
-
-- **Modelo del Dominio**: parcialmente implementado vía `skills` + dependencias declaradas en el prompt del LLM. **Falta el grafo formal con prerequisitos** (hoy es una lista plana).
-- **Modelo del Estudiante**: estado cognitivo está representado por `attempts` y `user_skills`. **Faltan**: rasgos de personalidad (Grit), estado afectivo en tiempo real, contexto socioeconómico estructurado.
-- **Modelo Pedagógico (multi-agente)**: hoy es un **único agente** (el LLM activo) con prompts especializados por fase. **No hay separación formal** Estratega / Diseñador / Coach.
-
-#### Integración con IA
-
-Cuatro puntos del sistema usan el LLM activo (Groq por default, Gemini como alternativa, Mock como fallback):
-
-1. Extracción del `GapReport` desde texto.
-2. Generación de units (contenido + 5 ejercicios) por skill.
-3. Sugerencia de recursos externos por skill y fase, con guardrails anti-alucinación de URLs (whitelist + búsquedas YouTube).
-4. Feedback empático cuando el alumno falla (Paciencia).
-
-Si el LLM cae, el endpoint sigue funcionando con `generator_used: "mock"`.
-
-#### Infraestructura y despliegue
-
-- ✅ Producción pública: `https://capacity-ar-ap.onrender.com`.
-- ✅ Auto-deploy desde `main`.
-- ✅ Documentación de curls de prueba ([api-curls.md](https://github.com/Capacityar/backend/blob/main/docs/api-curls.md)).
-- ✅ Guía para frontend ([frontend-guide.md](frontend-guide.md)).
-
-#### Backlog completado
-
-Resumen de las 6 épicas cerradas:
-
-| Épica | Esfuerzo real |
-|---|---|
-| C1 — MVP backend FastAPI + módulo users | ~4 h |
-| C2 — `learning_paths` con MockPlanGenerator | ~6 h |
-| C3 — Persistencia en PostgreSQL (Neon + Render) | ~5 h |
-| C4 — Generación con IA: Groq + Gemini con fallback | ~6 h |
-| C5 — `attempts` con Paciencia (4° P) | ~3 h |
-| C6 — `resources` con anti-alucinación de URLs | ~3 h |
-
-Total invertido: ~27 horas. Detalle en [backlog.md](backlog.md).
+- [CONTRIBUTING.md](../CONTRIBUTING.md): política de PR/revisión, convención de commits, versionado semántico.
+- [requisitos-calidad.md](requisitos-calidad.md): umbrales medibles por característica (ISO/IEC 25010).
+- [metricas-ingenieria-software.md](metricas-ingenieria-software.md), [plan-de-sprints-v2.md](plan-de-sprints-v2.md), [manual-de-usuario.md](manual-de-usuario.md), [tech-stack.md](tech-stack.md).
 
 ---
 
-## 4. Lo pendiente
+## 3. Fortalezas
 
-### 4.1 Equipo 1 — Gap Engine "nativo"
-
-Hoy `gap_analysis` está implementado por Equipo 2 como solución pragmática. La consigna original asume que Equipo 1 produce el `GapReport` con un pipeline propio (Google Forms + validación + scoring). Pendiente: definir si esa entrega independiente sucede o si `gap_analysis` queda como solución definitiva.
-
-### 4.2 Equipo 2 — Backlog priorizado
-
-Las 4 épicas que cierran el modelo 5P + HITL según los documentos del TP:
-
-| # | Épica | Por qué importa según la consigna | Esfuerzo |
-|---|---|---|---|
-| 1 | Perseverancia y métricas del alumno | Cierra la 5° P. Sin esto, "Perseverancia" queda como concepto sin implementación | 3-4 h |
-| 2 | Tutores y asignaciones | Implementa el HITL exigido por el modelo. Sin esto no hay supervisión humana real | 4-5 h |
-| 3 | Sistema de alertas | El dashboard del tutor con análisis predictivo de abandono es un requisito explícito | 3-4 h |
-| 4 | Next-unit logic y desbloqueo progresivo | Mastery Learning de Bloom: bloquear avance hasta dominar la skill anterior | 2-3 h |
-
-Total mínimo para cumplir con el modelo de la consigna: **13-16 horas**.
-
-### 4.3 Otras épicas planificadas
-
-| # | Épica | Esfuerzo |
-|---|---|---|
-| 5 | Validaciones críticas (entregables con ojo humano) | 3 h |
-| 6 | Auth (Fase 6A mock + Fase 6B JWT) | 9-12 h |
-| 7 | Eventos hacia Equipo 1 (contrato append-only) | 2 h |
-| 8 | Calidad técnica (tests, CORS, Alembic) | 4-6 h |
-
-Detalle, user stories, endpoints y criterios de aceptación de cada épica en [backlog.md](backlog.md).
-
-### 4.4 Brechas conceptuales respecto a la consigna
-
-| Punto de la consigna | Brecha actual |
-|---|---|
-| Grafo de conocimientos con prerequisitos formales | Skills hoy son lista plana; el orden lo decide el `priority` del GapReport |
-| Modelo Pedagógico multi-agente (Estratega + Diseñador + Coach) | Hoy es un único LLM con prompts por fase |
-| Estado afectivo en tiempo real (detección de frustración vía NLP) | No implementado |
-| Contexto socioeconómico estructurado del alumno | No registrado en BD |
-| Métricas psicométricas (Escala de Grit, SDT) | No implementado |
-| Plan de validación empírica (piloto con grupo control) | No diseñado todavía |
-| Gobernanza de datos y consentimiento informado | No implementado (relevante porque trabajamos con menores en barrios vulnerables) |
-| Capacitación del tutor humano (onboarding del dashboard) | No diseñada |
-
-Estas brechas no son bloqueantes para el TP, pero **deben mencionarse en la presentación** porque están explícitas en los documentos del modelo.
+1. **Arquitectura modular limpia**: cada capacidad sigue `router → service → repository` con modelos/schemas separados. Los proveedores externos (LLM, repositorios) se inyectan por **Protocol + Factory**, lo que permite cambiar Groq ↔ Gemini ↔ Mock sin tocar el resto.
+2. **IA híbrida fail-safe**: el código determinístico fija la estructura del plan y el LLM solo rellena contenido; ante falla del LLM el sistema degrada a Mock en lugar de devolver un 500. Timeout explícito de 30 s.
+3. **Anti-alucinación de URLs**: whitelist de dominios oficiales (MDN, react.dev, git-scm…) y URLs de búsqueda de YouTube en lugar de links inventados.
+4. **Calidad con evidencia**: CI en verde con cobertura medible (≥ 70 %), migraciones versionadas, CORS tipificado (sin wildcard en producción).
+5. **Proceso formalizado**: política de revisión con independencia de roles, checklist de PR, versionado semántico, requisitos de calidad auditables. Nada de esto existía en el inicio del proyecto.
+6. **Despliegue desacoplado**: backend y frontend se despliegan y escalan por separado (Render / Vercel), eliminando el acoplamiento del MVP inicial.
 
 ---
 
-## 5. Decisiones técnicas relevantes
+## 4. Lo que falta (de forma honesta)
 
-- **Auth diferida** intencionalmente para no bloquear el resto. Identificación por email mientras tanto. Matriz de permisos ya documentada en [access-matrix.md](access-matrix.md).
-- **IA híbrida** (código fija la estructura, LLM solo rellena contenido) en vez de pipeline 100% LLM. Permite controlar la forma del output y caer a Mock sin romper.
-- **Identificación compuesta de ejercicios** (`learning_path_id + module_index + unit_index + exercise_index`) en vez de tabla propia. Trade-off documentado en [training-module-design.md](training-module-design.md).
-- **Gap analysis partido en 2 pasos** por el timeout de 30s de Render free tier.
-- **Anti-alucinación de URLs en recursos**: para videos siempre URLs de búsqueda en YouTube; para docs canónicas, whitelist de dominios.
-- **No remover el fallback a Mock**: la API nunca debe romperse por culpa del LLM.
+### 4.1 Funcionalidad (épicas pendientes)
+
+| Épica | Qué falta | Estado |
+|-------|-----------|--------|
+| Épica 1 | `sessions` + `student_metrics` (Perseverancia, 5.ª P) | ⚠️ Pendiente |
+| Épica 2 | CRUD de tutores, asignaciones, dashboard (HITL real) | ⚠️ Pendiente |
+| Épica 3 | Sistema de alertas predictivas | ⚠️ Pendiente |
+| Épica 4 | `next-unit` y desbloqueo progresivo | ⚠️ Pendiente |
+| Épica 5 | Validaciones críticas (juicio humano) | ⚠️ Pendiente |
+| Épica 7 | Eventos hacia Equipo 1 (métricas globales) | ⚠️ Pendiente |
+
+La **matriz de accesos** (`access-matrix.md`) está definida pero no aplicada de punta a punta.
+
+### 4.2 Frontend (el mayor gap)
+
+- **0 % de cobertura de tests** y **sin CI** en el repo `frontend` (a diferencia del backend).
+- **Datos mockeados**: Dashboard, Evaluación, CanalTutor y otras pantallas muestran datos fijos, no los de la API (issues S4.1–S4.4).
+- **Enlaces rotos** y **página 404 en inglés** (hallazgos H01/H02 de la evaluación heurística).
+- **Accesibilidad y responsive sin cumplir**: sidebar de 240 px que rompe el layout en móvil; WCAG 2.1 AA no medido.
+- **Logout** no limpia el contexto de usuario.
+
+### 4.3 Calidad y rendimiento sin medir
+
+- **SUS ≥ 70**, **WCAG 2.1 AA ≥ 95 %**, **LCP < 2.5 s**, **P95 < 10 s**, **TTFT** — todos definidos como umbrales pero sin medición publicada aún.
+- **MTTR de failover** del LLM y **grounding/precisión del RAG** — documentados como métricas objetivo, no instrumentados.
+
+### 4.4 Deuda de gestión (parcialmente corregida este ciclo)
+
+- **Naming inconsistente** (`CapacityAR`/`capacityAr`/`Capacitaya`/`Capacita Ya`) — normalizado a **Capacityar**.
+- **58 issues fuera del project board** (el tablero tiene 69 items vs 127 issues en la org).
+- **Duplicados**: tres issues "S1.5 versionado" (backend#23, backend#55, frontend#20).
+- **Branches muertos** sin mergear en `backend` y `frontend`.
+- Docs que describían la arquitectura vieja (frontend dentro de Render) — corregidos.
+
+---
+
+## 5. Métricas y porcentajes
+
+### 5.1 Issues
+
+| Repo | Abiertos | Cerrados | Total | % cerrado |
+|------|----------|----------|-------|-----------|
+| backend | 22 | 34 | 56 | 60.7 % |
+| frontend | 17 | 3 | 20 | 15 % |
+| .github | 11 | 40 | 51 | 78.4 % |
+| **Total** | **50** | **77** | **127** | **60.6 %** |
+
+### 5.2 Commits y cobertura
+
+| Métrica | Valor |
+|---------|-------|
+| Commits totales | 134 (backend 100 · frontend 9 · .github 25) |
+| Cobertura backend | **73 %** (CI ≥ 70 %) |
+| Cobertura frontend | **0 %** |
+
+### 5.3 Project board (tras la corrección de estados)
+
+| Estado | Items | % |
+|--------|-------|---|
+| Done | 28 | 40.6 % |
+| In Progress | 1 | 1.4 % |
+| Review | 2 | 2.9 % |
+| Todo | 8 | 11.6 % |
+| Backlog | 17 | 24.6 % |
+| Posteriores | 13 | 18.8 % |
+| **Total** | **69** | — |
+
+> El tablero cubre 69 de los 127 issues: **58 issues no están representados**.
 
 ---
 
 ## 6. Riesgos
 
-| Riesgo | Mitigación actual | Mitigación pendiente |
-|---|---|---|
-| Timeout de Render free tier (30s) | Gap analysis partido en 2 pasos | Mover generación de plan a background task con `202 Accepted` |
-| Cuota de Groq (~14.4k RPD) y Gemini (1.5k RPD) | Fallback a Mock + cache de recursos | Cache de planes por (skill, target_role) si crece el tráfico |
-| Sin tests automatizados todavía | Manual via Swagger + curls | Épica 8 (pytest + httpx) |
-| Sin Alembic (uso de `create_all`) | Funcional en MVP | Alembic antes del primer cambio de schema con datos reales |
-| Credenciales en variables de entorno de Render | OK | Rotar las claves Groq + Neon antes de la presentación pública |
-| Auth ausente | Endpoints públicos en MVP | Épica 6A (headers mock) desbloquea el resto del backlog |
-| PDFs escaneados (sin OCR) | Rechazo con `422` (texto muy corto) | Documentado como limitación |
+| Riesgo | Mitigación actual | Pendiente |
+|--------|-------------------|-----------|
+| Timeout de Render free tier (30 s) | Gap analysis en 2 pasos; timeout + fallback a Mock | Background task con 202 Accepted |
+| Cuotas limitadas de LLM gratuitas (Groq/Gemini) | Fallback a Mock + cache por (skill, fase) | Cache de planes por (skill, role) |
+| Frontend sin tests ni CI | — (gap abierto) | CI mínimo + tests para el frontend |
+| Cobertura backend = 73 %, umbral = 70 % | Piso alcanzado con poco margen | Subir cobertura y sumar branch coverage |
+| Datos mockeados en frontend | Marcados como demo en la UI | Conexión real a la API (S4.x) |
+| 58 issues fuera del tablero | — (gap de gestión) | Subir issues faltantes al board |
+| URL de producción de Vercel sin confirmar | `homepage` del repo limpiado | Verificar la URL exacta del deploy |
 
 ---
 
-## 7. Próximos pasos recomendados
+## 7. Próximos pasos (orden sugerido)
 
-Para la próxima iteración, ordenados por impacto en la consigna:
-
-1. **Épica 1 (Perseverancia)**: cierra las 5 P. 3-4 h.
-2. **Épica 2 (Tutores)**: activa el HITL exigido por la consigna. 4-5 h.
-3. **Épica 3 (Alertas)**: completa el dashboard predictivo. 3-4 h.
-4. **Épica 4 (Next-unit logic)**: Mastery Learning real con bloqueo de avance. 2-3 h.
-5. **Épica 6A (Auth mock)**: hace efectiva la matriz de accesos documentada. 3-4 h.
-6. **Épica 8 (Tests + CORS + Alembic)**: indispensable para defender el TP como producto, no como prototipo. 4-6 h.
+1. **Cerrar el gap de frontend**: tests + CI mínimo, y conectar pantallas a la API real (S4.1–S4.4).
+2. **Épica 1** — Perseverancia (`sessions` + `student_metrics`) para cerrar las 5 P.
+3. **Épica 2** — Tutores y asignaciones (HITL real).
+4. **Épica 3** — Alertas predictivas.
+5. **Medir lo definido**: SUS, WCAG, LCP, P95 (los umbrales ya están en `requisitos-calidad.md`).
+6. **Sincronizar el tablero**: subir los 58 issues ausentes y consolidar duplicados.
 
 ---
 
 ## 8. Referencias
 
-- Modelo pedagógico y arquitectura: `Modelo IA para Capacitación IT.docx`, `Scrum_Trabajo_Practico.docx`, `Modelo Capacitacion con IA 2.docx`.
-- Cobertura 5P: [5p-coverage.md](5p-coverage.md).
-- Contrato entre equipos: [scope-equipos.md](scope-equipos.md).
-- Arquitectura backend: [backend-onboarding.md](https://github.com/Capacityar/backend/blob/main/docs/backend-onboarding.md).
-- Integración con IA: [ai-integration.md](https://github.com/Capacityar/backend/blob/main/docs/ai-integration.md).
-- Backlog completo: [backlog.md](backlog.md).
-- Guía para el frontend: [frontend-guide.md](frontend-guide.md).
-- Curls de prueba: [api-curls.md](https://github.com/Capacityar/backend/blob/main/docs/api-curls.md).
-- Matriz de accesos: [access-matrix.md](access-matrix.md).
-- Repositorio: https://github.com/marcelocassiovieira/capacitaya
-- Producción: https://capacity-ar-ap.onrender.com
+| Repo / recurso | Link |
+|----------------|------|
+| Backend | [Capacityar/backend](https://github.com/Capacityar/backend) |
+| Frontend | [Capacityar/frontend](https://github.com/Capacityar/frontend) |
+| Organización | [Capacityar/.github](https://github.com/Capacityar/.github) |
+| Tablero | [Capacityar Tablero](https://github.com/orgs/Capacityar/projects/1) |
+| API (producción) | [capacity-ar-ap.onrender.com](https://capacity-ar-ap.onrender.com) |
+| Swagger | [capacity-ar-ap.onrender.com/docs](https://capacity-ar-ap.onrender.com/docs) |
+| Sitio (GitHub Pages) | [capacityar.github.io/.github](https://capacityar.github.io/.github/) |

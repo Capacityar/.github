@@ -2,7 +2,7 @@
 
 **Versión 2.0 | Junio 2026**
 
-**Proyecto:** CapacityAR — UMET Ingeniería de Software I
+**Proyecto:** Capacityar — UMET Ingeniería de Software II
 
 ## Historial de Revisión
 
@@ -109,9 +109,9 @@ El sistema implementa el modelo de las **5P** con **Human-in-the-Loop (HITL)**:
 | RNF-04 | Anti-alucinación de URLs en recursos | ✅ |
 | RNF-05 | Identificación por email (auth diferida) | ✅ |
 | RNF-06 | Auto-deploy desde main | ✅ |
-| RNF-07 | Tests automatizados | ❌ (Épica 8) |
-| RNF-08 | Migraciones con Alembic | ❌ (Épica 8) |
-| RNF-09 | CORS habilitado | ❌ (Épica 8) |
+| RNF-07 | Tests automatizados | ✅ (CI backend, cobertura ≥ 70 %) |
+| RNF-08 | Migraciones con Alembic | ✅ |
+| RNF-09 | CORS habilitado | ✅ (Vercel → Render) |
 
 ## 6. Arquitectura del Sistema
 
@@ -135,8 +135,12 @@ El código determinístico fija la estructura del plan; el LLM solo rellena cont
 
 ### 6.3 División en equipos
 
-- **Equipo 1 — Gap Engine:** Produce el GapReport (diagnóstico de brecha)
-- **Equipo 2 — Capacitación + Tutores (este repo):** Consume GapReport, opera fases 1-4, supervisión humana
+- **Equipo 1 (E1) — Backend:** gap engine, módulos de negocio, tests.
+- **Equipo 2 (E2) — DevOps/Integración:** despliegue, CI/CD, CORS, secretos.
+- **Equipo 3 (E3) — Frontend:** React, UX, accesibilidad.
+- **Scrum Master:** proceso, documentación, calidad.
+
+> Ver [scope-equipos.md](scope-equipos.md) para el detalle de responsabilidades.
 
 ## 7. Matriz de Accesos
 

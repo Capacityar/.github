@@ -1,6 +1,8 @@
 # Alcance Por Equipo
 
-Documento de acuerdo entre equipos sobre quien hace que dentro del monolito modular Capacity AR.
+Documento de acuerdo entre equipos sobre quien hace que dentro del monolito modular Capacityar.
+
+> **Nota (Nov 2026):** este documento describe la división **de dominio** original en dos equipos (Equipo 1 — Gap Engine, Equipo 2 — Capacitación + Tutores). La división **funcional** actual del proyecto es en tres equipos de implementación + Scrum Master: **E1 (Backend)**, **E2 (DevOps/Integración)** y **E3 (Frontend)**. Los módulos del "Equipo 2" de este documento hoy los implementa E1, y el frontend lo implementa E3.
 
 ## Contexto
 
